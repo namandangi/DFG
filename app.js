@@ -182,7 +182,7 @@ app.use(session({
   });
 
   app.get("/login/ngo",function(req,res){
-    res.render("login");
+    res.render("login_ngo");
   });
 
   app.get("/register/user",function(req,res){
@@ -228,7 +228,7 @@ app.use(session({
       }
       else{
         passport.authenticate("local")(req,res,function(){
-          res.redirect("/dashboard");
+          res.redirect("/ngo");
         });
       }
     });
@@ -246,7 +246,7 @@ app.use(session({
     });
     Ngo.create(newUser,(err,ngo)=>{
         console.log(ngo);
-        res.render("dashboard");
+        res.render("dashboard_ngo",{nameOfNgo:req.body.name , emailOfNgo:req.body.username});
     })
     // newUser.save(function(err){
     //   if(err){
@@ -277,23 +277,41 @@ app.use(session({
 //     });
 // });
 //   });
-app.post("/login", passport.authenticate("local",
+app.post("/login/user", passport.authenticate("local",
 {
       successRedirect: "/dashboard",
       failureRedirect: "/login"
     }), function(req, res){
 });
 
+app.post("/login/ngo",function(req,res){
+  const username = req.body.username;
+  const password = md5(req.body.password);
+  Ngo.findOne({email:username},function(err,foundUser){
+    if(err){
+      console.log(err);
+    }
+    else{
+      if(foundUser){
+        if(foundUser.password === password){
+          res.render("dashboard_ngo",{nameOfNgo:req.body.name , emailOfNgo:req.body.username});
+        }
+      }
+    }
+  });
+});
+
+
 
 app.get("/ngos",(req,res)=>{
-    
+
     Ngo.find({},(err,ngo)=>{
    //     console.log(ngo);
         ngoList.push(ngo);
         res.render("ngo",{allngo:ngo});
     });
     console.log(ngoList);
-    
+
 })
 
 app.post("/register/needy",(req,res)=>{
