@@ -1,40 +1,43 @@
 <%- include('partials/header') %>
 
 <body>
-    <div style="width: 500px;margin-left: 450px;">
-        <div class="shadow p-3 mb-5 bg-white rounded">
-            <p class="lead" style="color: #f5622c;">Please Enter the following details: </p>
-            <form >
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Name">
-              </div>
-              <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" class="form-control" id="age" placeholder="Enter Age">
-              </div>
-              <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" class="form-control" id="location" placeholder="Enter Location">
-              </div>
-              <div class="form-group">
-                <label for="image">Image</label>
-                <input type="text" class="form-control" id="image">
-              </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" placeholder="Enter Discription" ></textarea>
-            </div>
-            <label>Impairmant if any</label>
-            <select class="form-control">
-                <option>None</option>
-                <option>Visual</option>
-                <option>Auditory</option>
-                <option>Limb</option>
-                <option>Autism</option>
-              </select>
-              <br>
-            <button style="background-color: #f5622c;" class="btn" type="submit" >Submit</button>
+  <div style="width: 500px;margin-left: 450px;">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <p class="lead" style="color: #f5622c;">Please Enter the following details: </p>
+      <form action="/register/under-privileged" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age" placeholder="Enter Age">
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter Location">
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="text" class="form-control" id="image">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" placeholder="Enter Discription" ></textarea>
+        </div>
+        <label>Impairmant if any</label>
+        <select class="form-control">
+          <option>None</option>
+          <option>Visual</option>
+          <option>Auditory</option>
+          <option>Limb</option>
+          <option>Autism</option>
+        </select>
+        <br>
+        <button style="background-color: #f5622c;" class="btn" type="submit" >Submit</button>
+      </form>
+    </div>
+  </div>
 </body>
 
   <%- include('partials/footer') %>
