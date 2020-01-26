@@ -1,12 +1,17 @@
+<%- include('partials/header') %>
 <body>
     <div class="container" >
+      
+      <% allngo.forEach(function(ngo){ %>      
         <div class="card" style="width: 100%;">
             <div class="card-body">
-              <h5 class="card-title">NGO Name</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Website: http://cavsisdhso</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title"><%= ngo.username%></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Website: <%=ngo.socialLink%></h6>
+              <p class="card-text"><%= ngo.description%></p>
               <a href="#" class="card-link">Donate</a>
             </div>
           </div>
     </div>
+    <% }) %>
 </body>
+<%- include('partials/footer') %>

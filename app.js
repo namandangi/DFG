@@ -11,7 +11,7 @@ var express                 = require('express'),
     Ngo                     = require('./models/ngo'),
     md5=require("md5"),
     app                     = express();
-
+    var ngoList = [];
 
 
 mongoose.connect("mongodb://localhost:27017/dfg",{useNewUrlParser:true, useUnifiedTopology: true});
@@ -234,16 +234,22 @@ app.use(session({
     var newUser = new Ngo({
         username: req.body.username,
         email : req.body.username,
-        password: md5(req.body.password)
+        password: md5(req.body.password),
+        description : req.body.description,
+        socialLink : req.body.link
     });
-    newUser.save(function(err){
-      if(err){
-        console.log(err);
-      }
-      else{
+    Ngo.create(newUser,(err,ngo)=>{
+        console.log(ngo);
         res.render("dashboard");
-      }
-    });
+    })
+    // newUser.save(function(err){
+    //   if(err){
+    //     console.log(err);
+    //   }
+    //   else{
+    //     res.render("dashboard");
+    //   }
+    // });
   });
 
 //   app.post("/login",function(req,res){
@@ -271,6 +277,19 @@ app.post("/login", passport.authenticate("local",
       failureRedirect: "/login"
     }), function(req, res){
 });
+
+
+app.get("/ngos",(req,res)=>{
+    
+    Ngo.find({},(err,ngo)=>{
+   //     console.log(ngo);
+        ngoList.push(ngo);
+        res.render("ngo",{allngo:ngo});
+    });
+    console.log(ngoList);
+    
+})
+
 
 
 app.listen(process.env.PORT||3000,process.env.IP,()=>{
