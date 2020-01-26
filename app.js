@@ -352,23 +352,23 @@ app.post('/events',(req,res)=>{
     var newEvent =new Event({
         //username: req.body.username,
         name : req.body.name,
-        
+
         location: req.body.location,
-        
+
         description : req.body.description,
-        
+
       });
       //console.log(newEvent);
       Event.create(newEvent,(err,event)=>{
-        console.log(event);        
+        console.log(event);
     });
-    res.redirect('/events');        
+    res.redirect('/events');
 
 })
 app.get('/events',(req,res)=>{
-    Event.find({},(err,event)=>{        
+    Event.find({},(err,event)=>{
             //console.log(event);
-             res.render("events",{event:event});             
+             res.render("events",{event:event});
          });
 })
 
@@ -378,6 +378,11 @@ app.post("/donate",function(req,res){
       ngoList.push(ngo);
       res.render("ngo",{allngo:ngo});
   });
+});
+
+app.get("/logout",function(req,res){
+  req.logout();
+  res.redirect("/");
 });
 
 
