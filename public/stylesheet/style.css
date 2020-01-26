@@ -1,0 +1,50 @@
+#navbar{
+    background-color: #f5622c;
+    color: white;
+}
+.brand,.brand:hover{
+    color: white;
+}
+.toggler-btn{
+    background-color: white;
+}
+.text, .text:hover{
+    color: white;
+}
+a:hover{
+    color: white;
+    font-size: 20px;
+}
+.img{
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+}
+.list-group{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.list-group-item:hover{
+    background-color: #f5622c;
+    color: white;
+}
+.alert{
+    margin-top: 30px;
+}
+.card{
+    margin-top: 30px;
+}
+h5, .card-link,.card-link:hover{
+    border-bottom: black;
+    color: #f5622c;
+}
+.volunteer_card{
+    margin-left: 150px;
+}
+.ngo_card{
+    margin-right: 150px;
+}
+
+
+
+
