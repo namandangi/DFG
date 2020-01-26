@@ -4,25 +4,29 @@
     <div style="width: 500px;margin-left: 450px;">
         <div class="shadow p-3 mb-5 bg-white rounded">
             <p class="lead" style="color: #f5622c;">Please Enter the following details: </p>
-            <form >
+            <form action="/donate" method="post">
               <div class="form-group">
                 <label for="name"> Full Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Full Name">     
+                <input type="text" class="form-control" id="name" placeholder="Enter Full Name">
               </div>
               <div class="form-group">
                 <label for="cardno">Card Number:</label>
-                <input type="number" class="form-control" id="cardno" placeholder="Card number">     
+                <input type="number" class="form-control" id="cardno" placeholder="Card number">
+              </div>
+              <div class="form-group">
+                <label for="amt">Amount:</label>
+                <input type="number" class="form-control" id="amt" placeholder="Amount">
               </div>
               <div class="form-group">
                 <label for="location">CVV</label>
-                <input type="number" class="form-control" id="location" placeholder="CVV">                   
+                <input type="number" class="form-control" id="location" placeholder="CVV">
               </div>
               <div class="form-group">
                 <label for="image">Expiry Date</label>
                 <input type="text" class="form-control" id="image">
               </div>
-              
-            
+
+
               <br>
             <button style="background-color: #f5622c;" class="btn" type="submit" >Submit</button>
 </body>

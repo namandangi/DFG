@@ -326,9 +326,9 @@ app.post("/register/needy",(req,res)=>{
       });
       Needy.create(newUser,(err,need)=>{
         console.log(need);
-        
+
     });
-    res.redirect('/needy');        
+    res.redirect('/needy');
 })
 app.get('/needy',(req,res)=>{
     Needy.find({},(err,needy)=>{
@@ -337,6 +337,7 @@ app.get('/needy',(req,res)=>{
              res.render("NeedyCard",{need:needy});
          });
 })
+
 
 app.get('/donate',(req,res)=>{
     res.render("donation");
@@ -370,6 +371,16 @@ app.get('/events',(req,res)=>{
              res.render("events",{event:event});             
          });
 })
+
+app.post("/donate",function(req,res){
+  Ngo.find({},(err,ngo)=>{
+ //     console.log(ngo);
+      ngoList.push(ngo);
+      res.render("ngo",{allngo:ngo});
+  });
+});
+
+
 
 
 app.listen(process.env.PORT||3000,process.env.IP,()=>{

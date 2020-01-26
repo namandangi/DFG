@@ -1,14 +1,14 @@
 <%- include('partials/header') %>
 <body>
     <div class="container" >
-      
-      <% allngo.forEach(function(ngo){ %>      
+
+      <% allngo.forEach(function(ngo){ %>
         <div class="card" style="width: 100%;">
             <div class="card-body">
               <h5 class="card-title"><%= ngo.username%></h5>
               <h6 class="card-subtitle mb-2 text-muted">Website: <%=ngo.socialLink%></h6>
               <p class="card-text"><%= ngo.description%></p>
-              <a href="#" class="card-link">Donate</a>
+              <a href="/donate" class="card-link">Donate</a>
             </div>
           </div>
     </div>
