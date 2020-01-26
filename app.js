@@ -343,7 +343,7 @@ app.get('/donate',(req,res)=>{
     res.render("donation");
 })
 
-app.get('/createevents',(req,res)=>{
+app.get('/createevent',(req,res)=>{
     res.render("eventform");
 })
 

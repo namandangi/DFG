@@ -1,8 +1,8 @@
 <%- include('partials/header') %>
 <body>
+  <center>
+    <% allngo.forEach(function(ngo){ %>
     <div class="container" >
-
-      <% allngo.forEach(function(ngo){ %>
         <div class="card" style="width: 100%;">
             <div class="card-body">
               <h5 class="card-title"><a href="#"><%= ngo.username%></a></h5>
@@ -13,5 +13,6 @@
           </div>
     </div>
     <% }) %>
+  </center>
 </body>
 <%- include('partials/footer') %>
