@@ -28,7 +28,25 @@
 
 
               <br>
-            <button style="background-color: #f5622c;" class="btn" type="submit" >Submit</button>
+            <button style="background-color: #f5622c;" class="btn" type="button" data-toggle="modal" data-target="#exampleModal">Submit</button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        
+      </div>
+      <div class="modal-body">
+        Thank you for Donating!
+      </div>
+      <div class="modal-footer">
+        
+        <a type="button"  href="/ngos" class="btn btn-primary">NGO list</a>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 
 <%- include('partials/footer') %>
