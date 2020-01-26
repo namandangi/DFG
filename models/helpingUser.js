@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+passportLocalMongoose   = require('passport-local-mongoose');
 
 var helpSchema = new mongoose.Schema({
     name : {type : String , required : true},
@@ -16,6 +17,8 @@ var helpSchema = new mongoose.Schema({
         ref : "ngo"        
     }
 });
+
+helpSchema.plugin(passportLocalMongoose);
 
 var Help = mongoose.model("Help",helpSchema);
 
