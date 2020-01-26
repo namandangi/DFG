@@ -380,7 +380,14 @@ app.post("/donate",function(req,res){
   });
 });
 
-
+app.get('/ngo/:name',(req,res)=>{
+    Ngo.find({username:req.params.name},(err,prof)=>{
+        if(!err)
+        res.redirect("/ngo/"+req.params.name+"/dashboard");
+        else
+        res.redirect("/ngos")
+    })
+})
 
 
 app.listen(process.env.PORT||3000,process.env.IP,()=>{
