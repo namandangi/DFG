@@ -1,22 +1,23 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+passportLocalMongoose   = require('passport-local-mongoose');
 
 var ngoSchema = new mongoose.Schema({
-    name : {type : String , required : true},
+    username : {type : String , required : true},
     password : {type : String , required : true},
     email : {type : String , required : true},
     phone : {type : String , required : true},
     description : {type : String , required : true},
-    socialLinks : [{type : String}],
-    payinfo :
-    {
-        type : String,
-        required : true
-    },
-    bankdetails :
-    {
-        ifsc : String,
-        branchName : String
-    },
+    socialLinks : {type : String},
+    // payinfo :
+    // {
+    //     type : String,
+    //     required : true
+    // },
+    // bankdetails :
+    // {
+    //     ifsc : String,
+    //     branchName : String
+    // },
     helpedNeedy : 
     [{
         type : mongoose.Schema.Types.ObjectId,
@@ -24,5 +25,6 @@ var ngoSchema = new mongoose.Schema({
     }]
 
 });
+ngoSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("Help",ngoSchema);
+module.exports = mongoose.model("Ngo",ngoSchema);

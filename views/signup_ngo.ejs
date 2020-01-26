@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+<body style="background-color: whitesmoke;" >
+    <div style="background-color: #f5622c;" class="jumbotron">
+        <h2 style="color: white;text-align: center;" >Sign Up as NGO</h2>
+    </div>
+    <div class="container">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <form action="/register/ngo" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">     
+          </div>
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="email" class="form-control" name="username" id="email" placeholder="Enter Email">     
+              </div>
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control"  id="location" placeholder="Enter Location">                   
+              </div>
+            <div class="form-group">
+                <label for="ngoname">Description</label>
+                <textarea class="form-control" name="description" id="discription" placeholder="Enter Discription" ></textarea>                   
+            </div>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="number">Contact Number</label>
+                <input type="number" class="form-control" name="number" id="number" placeholder="Enter Contact Number">     
+              </div>
+              <div class="form-group">
+                <label for="ngoname">Website Link</label>
+                <input type="text" class="form-control" name="socialLinks" id="discription" placeholder="Enter Discription" ></input>                   
+            </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+              </div>
+              <button style="background-color: #f5622c;" class="btn" type="submit" >Submit</button>
+        </form>
+    </div>
+  </div>
+  </body>
+  <%- include('partials/footer') %>
