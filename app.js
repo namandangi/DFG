@@ -5,8 +5,9 @@ var express                 = require('express'),
     encrypt                 = require('mongoose-encryption'),
     session                 = require('express-session'),
     passportLocalMongoose   = require('passport-local-mongoose'),
-    GoogleStrategy         = require('passport-google-oauth20').Strategy,
+    GoogleStrategy          = require('passport-google-oauth20').Strategy,
     findOrCreate            = require('mongoose-findorcreate'),
+    User                    = require('./models/helpingUser'),
     app                     = express();
 
 
@@ -134,7 +135,6 @@ app.use(express.static(__dirname + "/public"));
 //   });
 
 
-
 app.use(session({
     secret: "My secret",
     resave: false,
@@ -147,14 +147,14 @@ app.use(session({
   mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser:true, useUnifiedTopology: true});
   mongoose.set("useCreateIndex",true);
 
-  const userSchema = new mongoose.Schema({
-    email: String,
-    password: String
-  });
-
-  userSchema.plugin(passportLocalMongoose);
-
-  const User = new mongoose.model("User",userSchema);
+  // const userSchema = new mongoose.Schema({
+  //   email: String,
+  //   password: String
+  // });
+  //
+  // userSchema.plugin(passportLocalMongoose);
+  //
+  // // const User = new mongoose.model("User",userSchema);
 
   passport.use(User.createStrategy());
 
@@ -204,7 +204,10 @@ app.use(session({
   app.post("/login",function(req,res){
     const user = new User({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
+      name : req.body.name,
+      email : req.body.username,
+      phone : req.body.number
     });
     req.login(user,function(err){
       if(err){
