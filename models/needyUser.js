@@ -6,7 +6,7 @@ var needySchema = new mongoose.Schema({
     age : Number,
     //location : {type : String , required : true},
     location : {type : String},
-    image : { data: Buffer, contentType: String },
+    image : { type: String },
     description : String,
     impairment : String
 });

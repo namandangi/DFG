@@ -4,26 +4,26 @@
   <div style="width: 500px;margin-left: 450px;">
     <div class="shadow p-3 mb-5 bg-white rounded">
       <p class="lead" style="color: #f5622c;">Please Enter the following details: </p>
-      <form action="/register/under-privileged" method="POST">
+      <form action="/register/needy" method="POST">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter Name">
+          <input type="text" class="form-control" name="username" id="name" placeholder="Enter Name">
         </div>
         <div class="form-group">
           <label for="age">Age</label>
-          <input type="number" class="form-control" id="age" placeholder="Enter Age">
+          <input type="number" class="form-control" name="age" id="age" placeholder="Enter Age">
         </div>
         <div class="form-group">
           <label for="location">Location</label>
-          <input type="text" class="form-control" id="location" placeholder="Enter Location">
+          <input type="text" class="form-control" name="location" id="location" placeholder="Enter Location">
         </div>
         <div class="form-group">
           <label for="image">Image</label>
-          <input type="text" class="form-control" id="image">
+          <input type="text" class="form-control" name="img" id="image">
         </div>
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea class="form-control" id="description" placeholder="Enter Discription" ></textarea>
+          <textarea class="form-control" id="description" name="description" placeholder="Enter Discription" ></textarea>
         </div>
         <label>Impairmant if any</label>
         <select class="form-control">
