@@ -10,6 +10,7 @@ var express                 = require('express'),
     User                    = require('./models/helpingUser'),
     Ngo                     = require('./models/ngo'),
     Needy                   = require('./models/needyUser'),
+    Event                   = require('./models/events'),
     md5=require("md5"),
     app                     = express();
     var ngoList = [];
@@ -319,6 +320,38 @@ app.get('/needy',(req,res)=>{
          });
 })
 
+app.get('/donate',(req,res)=>{
+    res.render("donation");
+})
+
+app.get('/createevents',(req,res)=>{
+    res.render("eventform");
+})
+
+
+app.post('/events',(req,res)=>{
+    var newEvent =new Event({
+        //username: req.body.username,
+        name : req.body.name,
+        
+        location: req.body.location,
+        
+        description : req.body.description,
+        
+      });
+      //console.log(newEvent);
+      Event.create(newEvent,(err,event)=>{
+        console.log(event);        
+    });
+    res.redirect('/events');        
+
+})
+app.get('/events',(req,res)=>{
+    Event.find({},(err,event)=>{        
+            //console.log(event);
+             res.render("events",{event:event});             
+         });
+})
 
 
 app.listen(process.env.PORT||3000,process.env.IP,()=>{

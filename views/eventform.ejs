@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<body>
+  <div style="width: 500px;margin-left: 450px;">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <p class="lead" style="color: #f5622c;">Please Enter the following details: </p>
+      <form action="/events" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" name="location" id="location" placeholder="Enter Location">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" name="description" placeholder="Enter Discription" ></textarea>
+        </div>
+        <button style="background-color: #f5622c;" class="btn" type="submit" >Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+  <%- include('partials/footer') %>
