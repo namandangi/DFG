@@ -325,9 +325,9 @@ app.post("/register/needy",(req,res)=>{
       });
       Needy.create(newUser,(err,need)=>{
         console.log(need);
-        
+
     });
-    res.redirect('/needy');        
+    res.redirect('/needy');
 })
 app.get('/needy',(req,res)=>{
     Needy.find({},(err,needy)=>{
@@ -336,6 +336,18 @@ app.get('/needy',(req,res)=>{
              res.render("NeedyCard",{need:needy});
          });
 })
+
+app.get("/donate",function(req,res){
+  res.render("donation.ejs");
+});
+
+app.post("/donate",function(req,res){
+  Ngo.find({},(err,ngo)=>{
+ //     console.log(ngo);
+      ngoList.push(ngo);
+      res.render("ngo",{allngo:ngo});
+  });
+});
 
 
 
