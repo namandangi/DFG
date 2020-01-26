@@ -192,6 +192,10 @@ app.use(session({
     res.render("signup_ngo");
   });
 
+  app.get("/register/new_UP",function(req,res){
+    res.render("new_UP");
+  });
+
   app.get("/dashboard",function(req,res){
     if(req.isAuthenticated()){
       res.render("dashboard");
