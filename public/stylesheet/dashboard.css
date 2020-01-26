@@ -1,0 +1,14 @@
+.dash_body{
+    background-color: whitesmoke;
+}
+.img{
+    margin-right: 20px;
+    float: left;
+}
+.alert{
+    width: 250px;
+    margin: 10px;
+}
+.info{
+    font-size: 20px;
+}
