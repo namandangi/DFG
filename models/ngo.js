@@ -5,9 +5,9 @@ var ngoSchema = new mongoose.Schema({
     username : {type : String , required : true},
     password : {type : String , required : true},
     email : {type : String , required : true},
-    phone : {type : String , required : true},
-    description : {type : String , required : true},
-    socialLinks : {type : String},
+    // phone : {type : String , required : true},
+    // description : {type : String , required : true},
+    // socialLinks : {type : String},
     // payinfo :
     // {
     //     type : String,
@@ -18,7 +18,7 @@ var ngoSchema = new mongoose.Schema({
     //     ifsc : String,
     //     branchName : String
     // },
-    helpedNeedy : 
+    helpedNeedy :
     [{
         type : mongoose.Schema.Types.ObjectId,
         ref : "needyUser"

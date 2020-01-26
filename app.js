@@ -9,6 +9,7 @@ var express                 = require('express'),
     findOrCreate            = require('mongoose-findorcreate'),
     User                    = require('./models/helpingUser'),
     Ngo                     = require('./models/ngo'),
+    md5=require("md5"),
     app                     = express();
 
 
@@ -165,7 +166,6 @@ app.use(session({
   app.get("/",function(req,res){
     res.render("home");
   });
-<<<<<<< HEAD
 
   app.get("/login",function(req,res){
     res.render("login");
@@ -174,7 +174,6 @@ app.use(session({
   app.get("/register",function(req,res){
     res.render("register");
   });
-=======
 
   app.get("/login/user",function(req,res){
     res.render("login");
@@ -192,7 +191,6 @@ app.use(session({
   app.get("/register/ngo",function(req,res){
     res.render("signup_ngo");
   });
->>>>>>> d1c7bdc12d4c77a578ddf763bdecaa195df237c2
 
   app.get("/dashboard",function(req,res){
     if(req.isAuthenticated()){
@@ -231,29 +229,19 @@ app.use(session({
   });
 
   app.post("/register/ngo",function(req,res){
-    console.log(req.body.username ,req.body.password);
-    var user ={
-      name : req.body.name,
-      password: req.body.password,
-      email : req.body.username,
-      phone : req.body.number,
-      description : req.body.description,
-      socialLinks : req.body.socialLinks
-    };
-    var newUser = new Ngo({username: req.body.username,password: req.body.password,
+    // console.log(req.body.username ,req.body.password);
+
+    var newUser = new Ngo({
+        username: req.body.username,
         email : req.body.username,
-        phone : req.body.number,
-        description : req.body.description,
-        socialLinks : req.body.socialLinks});
-    Ngo.register( newUser,req.body.password,function(err,user){
+        password: md5(req.body.password)
+    });
+    newUser.save(function(err){
       if(err){
         console.log(err);
-        res.redirect("/register/ngo");
       }
       else{
-        passport.authenticate("local")(req,res,function(){
-          res.redirect("/dashboard");
-        });
+        res.render("dashboard");
       }
     });
   });
@@ -277,12 +265,12 @@ app.use(session({
 //     });
 // });
 //   });
-        app.post("/login", passport.authenticate("local",
-        {
-            successRedirect: "/dashboard",
-            failureRedirect: "/login"
-        }), function(req, res){
-        });
+app.post("/login", passport.authenticate("local",
+{
+      successRedirect: "/dashboard",
+      failureRedirect: "/login"
+    }), function(req, res){
+});
 
 
 app.listen(process.env.PORT||3000,process.env.IP,()=>{
