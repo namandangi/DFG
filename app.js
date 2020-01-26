@@ -9,6 +9,7 @@ var express                 = require('express'),
     findOrCreate            = require('mongoose-findorcreate'),
     User                    = require('./models/helpingUser'),
     Ngo                     = require('./models/ngo'),
+    Needy                   = require('./models/needyUser'),
     md5=require("md5"),
     app                     = express();
     var ngoList = [];
@@ -192,7 +193,7 @@ app.use(session({
     res.render("signup_ngo");
   });
 
-  app.get("/register/new_UP",function(req,res){
+  app.get("/register/needy",function(req,res){
     res.render("new_UP");
   });
 
@@ -310,6 +311,30 @@ app.get("/ngos",(req,res)=>{
     });
     console.log(ngoList);
 
+})
+
+app.post("/register/needy",(req,res)=>{
+    var newUser =new Needy({
+        //username: req.body.username,
+        name : req.body.name,
+        age : req.body.age,
+        location: req.body.loaction,
+        image : req.body.img,
+        description : req.body.description,
+        impairment : req.body.impr
+      });
+      Needy.create(newUser,(err,need)=>{
+        console.log(need);
+        
+    });
+    res.redirect('/needy');        
+})
+app.get('/needy',(req,res)=>{
+    Needy.find({},(err,needy)=>{
+        //     console.log(ngo);
+             //ngoList.push(ngo);
+             res.render("NeedyCard",{need:needy});
+         });
 })
 
 
